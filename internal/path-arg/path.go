@@ -48,7 +48,7 @@ func (ed ExistsDir) String() string {
 
 func (ed *ExistsDir) Set(value string) error {
 	stat, err := os.Stat(value)
-	if os.IsNotExist(err) {
+	if err != nil {
 		return fmt.Errorf("convert %q to dir: %w", value, err)
 	}
 	if !stat.IsDir() {

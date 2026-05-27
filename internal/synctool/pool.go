@@ -20,7 +20,7 @@ func WithContext[T any](ctx context.Context, zero T, acc func(T, T) T) (*Pool[T]
 
 	return &Pool[T]{
 		eg:  eg,
-		ctx: ctx,
+		ctx: resCtx,
 		res: res,
 		acc: acc,
 	}, resCtx
